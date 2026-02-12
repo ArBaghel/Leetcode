@@ -14,18 +14,18 @@ class Solution:
         r=self.sortArray(nums[mid:])
         return self.merge(l,r)
     def merge(self,l,r):
-        res=[]
+        ans=[]
         i=j=0
         while i<len(l) and j<len(r):
             if l[i]<=r[j]:
-                res.append(l[i])
+                ans.append(l[i])
                 i+=1
             else :
-                res.append(r[j])
+                ans.append(r[j])
                 j+=1
-        res.extend(l[i:])
-        res.extend(r[j:])
-        return res
+        ans.extend(l[i:])
+        ans.extend(r[j:])
+        return ans
 
         
 
