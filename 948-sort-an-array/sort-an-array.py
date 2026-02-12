@@ -5,8 +5,13 @@ class Solution:
         #     for j in range (len(nums)-1):
         #         if nums[j]>=nums[j+1]:
         #             nums[j],nums[j+1]=nums[j+1],nums[j]
-        # return nums  
+        # return nums 
+
+
         #return sorted(nums)
+
+
+        # Merge Sort
         if len(nums)<=1:
             return nums
         mid=len(nums)//2
