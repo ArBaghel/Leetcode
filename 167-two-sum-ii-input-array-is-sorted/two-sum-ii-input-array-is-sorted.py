@@ -5,10 +5,10 @@ class Solution:
             sum1=numbers[l]+numbers[r]
             if sum1==target:
                 return [l+1,r+1]
-            elif sum1<target:
-                l+=1
-            else:
+            elif sum1>target:
                 r-=1
+            else:
+                l+=1
         # dict1={}
         # for i in range (len(numbers)):
         #     rem=target-numbers[i]
