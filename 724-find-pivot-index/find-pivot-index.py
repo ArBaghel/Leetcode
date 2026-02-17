@@ -10,4 +10,3 @@ class Solution:
             if leftSum[i]==rightSum[i]:
                 return i
         return -1
-        
