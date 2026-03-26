@@ -3,7 +3,7 @@ class Solution:
         s=s.strip()
         if not s: return 0
         sign=-1 if s[0]=="-" else 1
-        if s[0] in ["-","+"]:s=s[1:]
+        if s[0] in ["-","+"]: s=s[1:] 
         num=0
         for ch in s:
             if not ch.isdigit():break
