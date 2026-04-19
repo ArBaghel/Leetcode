@@ -17,7 +17,7 @@ class Solution:
         l,r=1,max(piles)
         while l<r:
             mid =(l+r)//2
-            if sum((pile+mid-1)//mid for pile in piles) > h:
+            if sum(-(-pile//mid) for pile in piles) > h:
                 l=mid+1
             else:
                 r=mid
