@@ -1,9 +1,8 @@
 class Solution:
-    def maxBuilding(self, n: int, restrictions: List[List[int]]) -> int:
-        restrictions +=[[1,0],[n,n-1]]
-        restrictions.sort()
-        for i in range (1,len(restrictions)):
-            restrictions[i][1]=min(restrictions[i][1],restrictions[i-1][1]+restrictions[i][0]-restrictions[i-1][0])
-        for i in range(len(restrictions)-2,-1,-1):
-            restrictions[i][1] = min(restrictions[i][1], restrictions[i+1][1] + restrictions[i+1][0]-restrictions[i][0])
-        return max((restrictions[i][1]+restrictions[i-1][1]+restrictions[i][0]-restrictions[i-1][0])//2 for i in range(1,len(restrictions)))
+    def maxBuilding(self, n: int, re: List[List[int]]) -> int:
+        re.sort(key=lambda i:i[0]+i[1])
+        ans, b = 0, [1,0]
+        for r in re:
+            ans = max(ans,(min(2*n-b[0]+b[1],r[0]+r[1])-(b[0]-b[1]))//2)
+            if b[0]-b[1] < r[0]-r[1]: b = [r[0],r[1]]
+        return max(ans,n-b[0]+b[1])
