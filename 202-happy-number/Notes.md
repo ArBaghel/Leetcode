@@ -1,1 +1,0 @@
-<h2>happy-number Notes</h2><hr>[ Time taken: 14m 48s ]
