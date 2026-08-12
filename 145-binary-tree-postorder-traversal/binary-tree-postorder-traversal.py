@@ -7,14 +7,14 @@
 class Solution:
     def __init__(self):
         self.ans=[]
-    def postorder(self,root):
-        if root is None:
-            return
-        self.postorder(root.left)
-        self.postorder(root.right)
+    def recursive(self,root):
+        if not root:return
+        
+        self.recursive(root.left)
+        self.recursive(root.right)
         self.ans.append(root.val)
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         self.ans=[]
-        self.postorder(root)
+        self.recursive(root)
         return self.ans
         
