@@ -7,14 +7,17 @@
 class Solution:
     def __init__(self):
         self.ans=[]
-    def preorder(self,root):
-        if root is None:
-            return
+    def recursive(self,root):
+        #base Case
+        if not root:return
+        #recursive
         self.ans.append(root.val)
-        self.preorder(root.left)
-        self.preorder(root.right)
+        self.recursive(root.left)
+        self.recursive(root.right)
+
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         self.ans=[]
-        self.preorder(root)
+        self.recursive(root)
         return self.ans
+
         
