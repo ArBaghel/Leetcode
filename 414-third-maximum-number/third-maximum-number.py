@@ -1,7 +1,8 @@
+import heapq
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
-        nums=sorted(set(nums))
+        nums=set(nums)
         if len(nums)<3:
-            return nums[-1]
-        return nums[-3]
+            return max(nums)
+        return heapq.nlargest(3,nums)[-1]
         
