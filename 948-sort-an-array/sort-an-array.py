@@ -1,36 +1,14 @@
 class Solution:
-    def sortArray(self, nums: List[int]) -> List[int]:
-        # Bubble Sort
-        # for i in range(len(nums)):
-        #     for j in range (len(nums)-1):
-        #         if nums[j]>=nums[j+1]:
-        #             nums[j],nums[j+1]=nums[j+1],nums[j]
-        # return nums 
-
-
-        #return sorted(nums)
-
-
-        # Merge Sort
-        if len(nums)<=1:
-            return nums
+    def sortArray(self, nums: list[int]) -> list[int]:
+        return self.merge(nums)
+    def merge(self,nums):
+        if len(nums)<=1:return nums
+        res=[]
         mid=len(nums)//2
-        l=self.sortArray(nums[:mid])
-        r=self.sortArray(nums[mid:])
-        return self.merge(l,r)
-    def merge(self,l,r):
-        ans=[]
-        i=j=0
-        while i<len(l) and j<len(r):
-            if l[i]<=r[j]:
-                ans.append(l[i])
-                i+=1
-            else :
-                ans.append(r[j])
-                j+=1
-        ans.extend(l[i:])
-        ans.extend(r[j:])
-        return ans
+        l=self.merge(nums[:mid])
+        r=self.merge(nums[mid:])
+        while l and r:
+            res.append(l.pop(0) if l[0]<r[0] else r.pop(0))
+        return res+l+r
 
         
-
