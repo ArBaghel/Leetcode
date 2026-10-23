@@ -1,17 +1,18 @@
 class Solution:
-    def setZeroes(self, mat: List[List[int]]) -> None:
+    def setZeroes(self, matrix: list[list[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        m,n=len(mat),len(mat[0])
         r,c=[],[]
-        for i in range(m):
-            for j in range(n):
-                if mat [i][j] == 0:
+        for i in range(len(matrix)):
+            for j in range (len(matrix[0])):
+                if matrix[i][j]==0:
                     r.append(i)
                     c.append(j)
-        for i in range (m):
-            for j in range(n):
+        for i in range(len(matrix)):
+            for j in range (len(matrix[0])):
                 if i in r or j in c:
-                    mat[i][j]=0
+                    matrix[i][j]=0
 
+
+        
