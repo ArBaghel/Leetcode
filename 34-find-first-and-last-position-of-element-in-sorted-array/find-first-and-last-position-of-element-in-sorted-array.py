@@ -1,25 +1,22 @@
 class Solution:
     def searchRange(self, nums: list[int], target: int) -> list[int]:
-        lb=self.lower(nums,target)
-        ub=self.upper(nums,target)
+        lb,ub=self.lowerBound(target,nums),self.upperBound(target,nums)
         if lb==ub:return [-1,-1]
-        else:return [lb,ub-1]
-    def upper(self,nums,target):
+        else :return [lb,ub-1]
+    def upperBound(self,target,nums):
         l,r=0,len(nums)
         while l<r:
-            mid=(l+r)//2
+            mid=l+(r-l)//2
             if nums[mid]>target:
                 r=mid
             else:l=mid+1
         return l
-
-    def lower(self,nums,target):
+    def lowerBound(self,target,nums):
         l,r=0,len(nums)
         while l<r:
-            mid=(l+r)//2
+            mid=l+(r-l)//2
             if nums[mid]>=target:
                 r=mid
             else:l=mid+1
         return l
-    
-    
+        
